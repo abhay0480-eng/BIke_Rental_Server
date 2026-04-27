@@ -1,9 +1,14 @@
 import http from 'node:http'
+import { handleGet } from './handlers/routeHandlers'
 
 const PORT = 8000
 
-const server = http.createServer((req, res) => {
-    res.end("server is running")
+const server = http.createServer(async (req, res) => {
+    if (req.url === '/api') {
+        if (req.method === "GET") {
+            await handleGet(req, res)
+        }
+    }
 })
 
 

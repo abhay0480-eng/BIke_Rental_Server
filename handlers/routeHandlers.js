@@ -20,6 +20,9 @@ export const handleGet = async (req, res) => {
         } else if (req.url.startsWith('/api/price')) {
             const filteredData = getDataByPathParams(req, parsedData, 'price')
             sendResponse(res, 200, 'application/json', filteredData)
+        } else if (req.url.startsWith('/api')) {
+            const filteredData = getDataByPathParams(req, parsedData, 'id')
+            sendResponse(res, 200, 'application/json', filteredData)
         } else {
             sendResponse(res, 404, 'application/json', JSON.stringify({ error: 'Route Not Found' }))
         }

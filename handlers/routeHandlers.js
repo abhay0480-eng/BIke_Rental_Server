@@ -1,5 +1,6 @@
 import { getData } from "../utils/getData.js"
 import { sendResponse } from "../utils/sendResponse.js"
+import { getDataByPathParams } from '../utils/getDataByPathParams.js'
 
 
 export const handleGet = async (req, res) => {
@@ -9,15 +10,11 @@ export const handleGet = async (req, res) => {
             const content = JSON.stringify(parsedData)
             sendResponse(res, 200, 'application/json', content)
         } else if (req.url.startsWith('/api/type')) {
-            const bikeType = req.url.split('/').pop()
-            const filteredData = parsedData.filter((bike) => bike.type === bikeType)
-            const content = JSON.stringify(filteredData)
-            sendResponse(res, 200, 'application/json', content)
+            const filteredData = getDataByPathParams(req, parsedData, 'type')
+            sendResponse(res, 200, 'application/json', filteredData)
         } else if (req.url.startsWith('/api/price')) {
-            const bikePrice = req.url.split('/').pop()
-            const filteredData = parsedData.filter((bike) => bike.price === parseInt(bikePrice))
-            const content = JSON.stringify(filteredData)
-            sendResponse(res, 200, 'application/json', content)
+            const filteredData = getDataByPathParams(req, parsedData, 'price')
+            sendResponse(res, 200, 'application/json', filteredData)
         } else {
             sendResponse(res, 404, 'application/json', JSON.stringify({ error: 'Route Not Found' }))
         }
@@ -25,6 +22,6 @@ export const handleGet = async (req, res) => {
 
 
     } catch (error) {
-        throw new Error(error)
+        sendResponse(res, 500, 'application/json', JSON.stringify({ error: 'Internal Server Error' }))
     }
 }

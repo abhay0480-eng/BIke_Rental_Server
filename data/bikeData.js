@@ -1,4 +1,4 @@
-export const bikes = [
+[
     {
         id: "1",
         name: "The Modest Explorer",

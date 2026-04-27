@@ -1,0 +1,98 @@
+[
+    {
+        "id": "1",
+        "name": "The Modest Explorer",
+        "price": 60,
+        "description": "A no-fuss adventure companion built for weekend trails and forest paths. Lightweight frame, reliable gears, and just enough ruggedness to handle unpaved roads without breaking a sweat.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_46_09_PM_eerni4.png",
+        "type": "simple"
+    },
+    {
+        "id": "2",
+        "name": "The Solar Drifter",
+        "price": 85,
+        "description": "Equipped with solar panels and a sleek utility rack, the Solar Drifter is built for those who want to stay off the grid without giving up comfort. Cruise longer, charge smarter.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_31_32_PM_t9orqp.png",
+        "type": "simple"
+    },
+    {
+        "id": "3",
+        "name": "The Urban Phantom",
+        "price": 95,
+        "description": "Designed for city streets that never sleep. The Urban Phantom cuts through traffic with a slim profile, responsive brakes, and a matte finish that turns heads at every intersection.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_31_00_PM_ewfky6.png",
+        "type": "simple"
+    },
+    {
+        "id": "4",
+        "name": "The Ridge Runner",
+        "price": 130,
+        "description": "Built for elevation. The Ridge Runner tackles mountain terrain with a reinforced steel frame, wide-grip tires, and a suspension fork that absorbs every rock and root the trail throws at you.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_30_53_PM_x0n5yl.png",
+        "type": "rugged"
+    },
+    {
+        "id": "5",
+        "name": "The Basecamp Beast",
+        "price": 150,
+        "description": "Your base camp on two wheels. Comes loaded with pannier mounts, a rear cargo platform, and an all-terrain drivetrain. Pack heavy, ride far, stop nowhere you don't want to.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_32_53_PM_u1mt3r.png",
+        "type": "rugged"
+    },
+    {
+        "id": "6",
+        "name": "The Velvet Cruiser",
+        "price": 200,
+        "description": "Luxury meets the open road. The Velvet Cruiser features a hand-stitched leather saddle, swept-back handlebars, and a whisper-quiet ride that makes every commute feel like a Sunday stroll.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_31_08_PM_irte4m.png",
+        "type": "luxury"
+    },
+    {
+        "id": "7",
+        "name": "The Summit King",
+        "price": 175,
+        "description": "When the trail ends, the Summit King keeps going. Dual hydraulic disc brakes, a carbon-reinforced fork, and aggressive tread tires make this the last bike you'll ever need to buy for off-road.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_33_11_PM_tmhv01.png",
+        "type": "rugged"
+    },
+    {
+        "id": "8",
+        "name": "The Greenline Glider",
+        "price": 110,
+        "description": "Eco-conscious and elegantly built. The Greenline Glider uses recycled aluminum tubing and a bamboo deck insert, proving that sustainable choices don't have to compromise on style or speed.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_34_21_PM_scr55v.png",
+        "type": "simple"
+    },
+    {
+        "id": "9",
+        "name": "The Nomad X",
+        "price": 165,
+        "description": "Cross continents, not just counties. The Nomad X is a long-haul touring bike with a water tank mount, integrated GPS dock, and a 21-speed drivetrain that handles everything from coastal flats to highland passes.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_37_04_PM_wuioqg.png",
+        "type": "rugged"
+    },
+    {
+        "id": "10",
+        "name": "The Grand Tourer",
+        "price": 240,
+        "description": "The pinnacle of long-distance comfort. Premium ergonomic saddle, vibration-dampening frame inserts, and a belt drive system that requires zero maintenance. Built for riders who refuse to compromise.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_35_29_PM_hdggwo.png",
+        "type": "luxury"
+    },
+    {
+        "id": "11",
+        "name": "The Desert Fox",
+        "price": 190,
+        "description": "Sand, gravel, hardpan — the Desert Fox was made for arid conditions. Fat tires with self-cleaning tread, a heat-resistant frame coat, and a sealed bearing system that laughs at dust and grit.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_43_53_PM_qpjkx3.png",
+        "type": "rugged"
+    },
+    {
+        "id": "12",
+        "name": "The Prestige",
+        "price": 320,
+        "description": "Reserved for those who want the absolute best. The Prestige comes with a titanium frame, Shimano Ultegra groupset, and a custom paint finish. Fewer than 100 units made per year. Ride one and you'll understand why.",
+        "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_44_59_PM_zryyx8.png",
+        "type": "luxury"
+    }
+]

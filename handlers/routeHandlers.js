@@ -1,14 +1,19 @@
 import { getData } from "../utils/getData.js"
 import { sendResponse } from "../utils/sendResponse.js"
 import { getDataByPathParams } from '../utils/getDataByPathParams.js'
+import { getDataByQueryParams } from '../utils/getDataByQueryParams.js'
 
 
 export const handleGet = async (req, res) => {
+    const urlObj = new URL(req.url, `http://${req.headers.host}`)
+    const queryObj = Object.fromEntries(urlObj.searchParams)
+
+
     try {
         const parsedData = await getData()
-        if (req.url === '/api') {
-            const content = JSON.stringify(parsedData)
-            sendResponse(res, 200, 'application/json', content)
+        if (urlObj.pathname === '/api') {
+            const filterData = getDataByQueryParams(queryObj, parsedData)
+            sendResponse(res, 200, 'application/json', JSON.stringify(filterData))
         } else if (req.url.startsWith('/api/type')) {
             const filteredData = getDataByPathParams(req, parsedData, 'type')
             sendResponse(res, 200, 'application/json', filteredData)

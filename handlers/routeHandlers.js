@@ -14,6 +14,12 @@ export const handleGet = async (req, res) => {
         if (urlObj.pathname === '/api') {
             const filterData = getDataByQueryParams(queryObj, parsedData)
             sendResponse(res, 200, 'application/json', JSON.stringify(filterData))
+        } else if (req.url.startsWith('/api/host/bikes')) {
+            const filteredData = getDataByPathParams(req, parsedData, 'hostId')
+            sendResponse(res, 200, 'application/json', filteredData)
+        } else if (req.url.startsWith('/api/host')) {
+            const filteredData = getDataByPathParams(req, parsedData, 'hostedBy')
+            sendResponse(res, 200, 'application/json', filteredData)
         } else if (req.url.startsWith('/api/type')) {
             const filteredData = getDataByPathParams(req, parsedData, 'type')
             sendResponse(res, 200, 'application/json', filteredData)

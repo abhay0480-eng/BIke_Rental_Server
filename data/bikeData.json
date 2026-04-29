@@ -5,7 +5,9 @@
         "price": 60,
         "description": "A no-fuss adventure companion built for weekend trails and forest paths. Lightweight frame, reliable gears, and just enough ruggedness to handle unpaved roads without breaking a sweat.",
         "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_46_09_PM_eerni4.png",
-        "type": "simple"
+        "type": "simple",
+        "hostId": "123",
+        "hostedBy": "Abhay Kumar"
     },
     {
         "id": "2",
@@ -13,7 +15,9 @@
         "price": 85,
         "description": "Equipped with solar panels and a sleek utility rack, the Solar Drifter is built for those who want to stay off the grid without giving up comfort. Cruise longer, charge smarter.",
         "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_31_32_PM_t9orqp.png",
-        "type": "simple"
+        "type": "simple",
+        "hostId": "123",
+        "hostedBy": "Abhay Kumar"
     },
     {
         "id": "3",
@@ -37,7 +41,9 @@
         "price": 150,
         "description": "Your base camp on two wheels. Comes loaded with pannier mounts, a rear cargo platform, and an all-terrain drivetrain. Pack heavy, ride far, stop nowhere you don't want to.",
         "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_32_53_PM_u1mt3r.png",
-        "type": "rugged"
+        "type": "rugged",
+        "hostId": "123",
+        "hostedBy": "Abhay Kumar"
     },
     {
         "id": "6",
@@ -93,6 +99,8 @@
         "price": 320,
         "description": "Reserved for those who want the absolute best. The Prestige comes with a titanium frame, Shimano Ultegra groupset, and a custom paint finish. Fewer than 100 units made per year. Ride one and you'll understand why.",
         "imageUrl": "https://res.cloudinary.com/dguqivg6t/image/upload/w_800,f_auto,q_auto/samples/bikes/ChatGPT_Image_Apr_27_2026_04_44_59_PM_zryyx8.png",
-        "type": "luxury"
+        "type": "luxury",
+        "hostId": "123",
+        "hostedBy": "Abhay Kumar"
     }
 ]

@@ -6,6 +6,29 @@ import { authMiddleware } from './middleware/authMiddleware.js'
 
 const PORT = 8000
 
+const ALLOWED_ORIGINS = [
+    'http://localhost:5173',                              // Local Vite dev server
+    'http://localhost:5174',                              // Backup port
+    'https://bike-rental-app-nine.vercel.app',            // ✅ FIXED: Removed trailing slash
+];
+
+const setCORSHeaders = (res, origin) => {
+    // Check if origin is allowed
+    if (ALLOWED_ORIGINS.includes(origin) || !origin) {
+        res.setHeader('Access-Control-Allow-Origin', origin || '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        res.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
+    }
+};
+
+const handlePreflight = (res, origin) => {
+    setCORSHeaders(res, origin);
+    res.writeHead(204); // No Content
+    res.end();
+};
+
 const applyMiddleware = (middleware, req, res) => {
     return new Promise((resolve, reject) => {
         middleware(req, res, (error) => {
@@ -23,6 +46,18 @@ const isProtectedRoute = (url) => {
 }
 
 const server = http.createServer(async (req, res) => {
+    const origin = req.headers.origin;
+
+    // Set CORS headers for all requests
+    setCORSHeaders(res, origin);
+
+    // Handle OPTIONS preflight requests
+    if (req.method === 'OPTIONS') {
+        return handlePreflight(res, origin);
+    }
+
+    // ✅ REMOVED: await handleRequest(req, res); — this line was wrong!
+
     try {
         // Check if route requires authentication
         if (isProtectedRoute(req.url)) {
@@ -36,7 +71,7 @@ const server = http.createServer(async (req, res) => {
             }
         }
 
-    // Handle the request
+        // Handle the request
         if (req.method === "GET") {
             await handleGet(req, res)
         } else {

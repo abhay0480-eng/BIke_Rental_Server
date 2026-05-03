@@ -1,10 +1,9 @@
 import admin from 'firebase-admin'
 import { readFile } from 'node:fs/promises'
-import path from 'node:path'
 
 /**
  * Initialize Firebase Admin SDK
- * This allows the backend to verify Firebase auth tokens
+ * Supports both local development (file) and production (env variable)
  */
 
 let firebaseApp = null
@@ -15,10 +14,28 @@ export const initializeFirebaseAdmin = async () => {
     }
 
     try {
-        // Read service account key file
-        const serviceAccountPath = path.join(process.cwd(), 'serviceAccountKey.json')
-        const serviceAccountData = await readFile(serviceAccountPath, 'utf-8')
-        const serviceAccount = JSON.parse(serviceAccountData)
+        let serviceAccount
+
+        // Check if running in production (Render/Vercel) with env variable
+        if (process.env.FIREBASE_SERVICE_ACCOUNT_BASE64) {
+            console.log('📦 Using Firebase service account from environment variable')
+
+            // Decode base64 string to JSON
+            const base64String = process.env.FIREBASE_SERVICE_ACCOUNT_BASE64
+            const jsonString = Buffer.from(base64String, 'base64').toString('utf-8')
+            serviceAccount = JSON.parse(jsonString)
+        }
+        // Local development - read from file
+        else {
+            console.log('📁 Using Firebase service account from local file')
+
+
+            const path = await import('node:path')
+
+            const serviceAccountPath = path.join(process.cwd(), 'serviceAccountKey.json')
+            const serviceAccountData = await readFile(serviceAccountPath, 'utf-8')
+            serviceAccount = JSON.parse(serviceAccountData)
+        }
 
         // Initialize Firebase Admin
         firebaseApp = admin.initializeApp({

@@ -1,5 +1,6 @@
 import http from 'node:http'
 import { handleGet } from './handlers/routeHandlers.js'
+import { createUserProfile } from './handlers/userHandlers.js'
 import { sendResponse } from './utils/sendResponse.js'
 import { initializeFirebaseAdmin } from './config/firebase.js'
 import { authMiddleware } from './middleware/authMiddleware.js'
@@ -42,7 +43,7 @@ const applyMiddleware = (middleware, req, res) => {
 }
 
 const isProtectedRoute = (url) => {
-    return url.startsWith('/api/host')
+    return url.startsWith('/api/host') || url === '/api/users'
 }
 
 const server = http.createServer(async (req, res) => {
@@ -72,7 +73,9 @@ const server = http.createServer(async (req, res) => {
         }
 
         // Handle the request
-        if (req.method === "GET") {
+        if (req.method === "POST" && req.url === '/api/users') {
+            await createUserProfile(req, res)
+        } else if (req.method === "GET") {
             await handleGet(req, res)
         } else {
             sendResponse(res, 405, 'application/json', JSON.stringify({ error: 'Method Not Allowed' }))
@@ -92,7 +95,7 @@ const startServer = async () => {
         // Start the HTTP server
         server.listen(PORT, () => {
             console.log(`🚀 Server is running on PORT ${PORT}`)
-            console.log(`🔒 Protected routes: /api/host/*`)
+            console.log(`🔒 Protected routes: /api/host/*, /api/users`)
         })
     } catch (error) {
         console.error('❌ Failed to start server:', error.message)

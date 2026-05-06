@@ -29,7 +29,6 @@ export const initializeFirebaseAdmin = async () => {
         else {
             console.log('📁 Using Firebase service account from local file')
 
-
             const path = await import('node:path')
 
             const serviceAccountPath = path.join(process.cwd(), 'serviceAccountKey.json')
@@ -43,6 +42,13 @@ export const initializeFirebaseAdmin = async () => {
         })
 
         console.log('✅ Firebase Admin initialized successfully')
+
+        // ✅ Initialize Firestore AFTER Firebase Admin
+        if (!global.firestoreDb) {
+            global.firestoreDb = admin.firestore()
+            console.log('✅ Firestore initialized successfully')
+        }
+
         return firebaseApp
     } catch (error) {
         console.error('❌ Failed to initialize Firebase Admin:', error.message)
@@ -63,4 +69,15 @@ export const verifyToken = async (idToken) => {
         console.error('❌ Token verification failed:', error.message)
         throw new Error('Invalid or expired token')
     }
+}
+
+/**
+ * Get Firestore instance
+ * Must be called AFTER initializeFirebaseAdmin()
+ */
+export const getDb = () => {
+    if (!global.firestoreDb) {
+        throw new Error('Firestore not initialized. Call initializeFirebaseAdmin() first.')
+    }
+    return global.firestoreDb
 }

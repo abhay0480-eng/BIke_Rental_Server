@@ -90,7 +90,7 @@ const server = http.createServer(async (req, res) => {
 const startServer = async () => {
     try {
         // Initialize Firebase Admin SDK
-        await initializeFirebaseAdmin()
+        await initializeFirebaseAdmin() 
 
         // Start the HTTP server
         server.listen(PORT, () => {

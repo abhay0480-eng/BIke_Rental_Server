@@ -16,21 +16,21 @@ export const authMiddleware = async (req, res, next) => {
         const authHeader = req.headers.authorization
 
         if (!authHeader) {
-            return res.writeHead(401, { 'Content-Type': 'application/json' })
-                .end(JSON.stringify({ error: 'No authorization token provided' }))
+            res.writeHead(401, { 'Content-Type': 'application/json' })
+            return res.end(JSON.stringify({ error: 'No authorization token provided' }))
         }
 
         // Step 2: Extract token from "Bearer <token>" format
         if (!authHeader.startsWith('Bearer ')) {
-            return res.writeHead(401, { 'Content-Type': 'application/json' })
-                .end(JSON.stringify({ error: 'Invalid authorization format. Use: Bearer <token>' }))
+            res.writeHead(401, { 'Content-Type': 'application/json' })
+            return res.end(JSON.stringify({ error: 'Invalid authorization format. Use: Bearer <token>' }))
         }
 
         const token = authHeader.split('Bearer ')[1]
 
         if (!token) {
-            return res.writeHead(401, { 'Content-Type': 'application/json' })
-                .end(JSON.stringify({ error: 'Token not found' }))
+            res.writeHead(401, { 'Content-Type': 'application/json' })
+            return res.end(JSON.stringify({ error: 'Token not found' }))
         }
 
         // Step 3: Verify token with Firebase
@@ -51,7 +51,7 @@ export const authMiddleware = async (req, res, next) => {
         // Token verification failed
         console.error('Auth middleware error:', error.message)
 
-        return res.writeHead(401, { 'Content-Type': 'application/json' })
-            .end(JSON.stringify({ error: 'Invalid or expired token' }))
+        res.writeHead(401, { 'Content-Type': 'application/json' })
+        return res.end(JSON.stringify({ error: 'Invalid or expired token' }))
     }
 }

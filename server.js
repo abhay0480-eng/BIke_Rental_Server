@@ -9,7 +9,8 @@ const PORT = 8000
 
 const ALLOWED_ORIGINS = [
     'http://localhost:5173',                              // Local Vite dev server
-    'http://localhost:5174',                              // Backup port
+    'http://localhost:5174',
+    'http://localhost:4173',                              // Backup port
     'https://bike-rental-app-nine.vercel.app',            // ✅ FIXED: Removed trailing slash
 ];
 
